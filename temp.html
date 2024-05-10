@@ -1,0 +1,74 @@
+<laxmi></laxmi>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="number"] {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Enter Temperature in Celsius:</label><br>
+        <input type="number" id="celsius" placeholder="Enter temperature"><br>
+        <button onclick="convertToFar()">Convert to Fahrenheit</button><br>
+        <label for="fahrenheit">Enter Temperature in Fahrenheit:</label><br>
+        <input type="number" id="fahrenheit" placeholder="Enter temperature"><br>
+        <button onclick="convertToCel()">Convert to Celsius</button><br>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertToFar() {
+            var celsiusTemp = document.getElementById("celsius").value;
+            var fahrenheitTemp = (celsiusTemp * 9/5) + 32;
+            document.getElementById("fahrenheit").value = fahrenheitTemp;
+            document.getElementById("result").innerText = celsiusTemp + "°C is equal to " + fahrenheitTemp + "°F";
+        }
+
+        function convertToCel() {
+            var fahrenheitTemp = document.getElementById("fahrenheit").value;
+            var celsiusTemp = (fahrenheitTemp - 32) * 5/9;
+            document.getElementById("celsius").value = celsiusTemp;
+            document.getElementById("result").innerText = fahrenheitTemp + "°F is equal to " + celsiusTemp + "°C";
+        }
+    </script>
+</body>
+</html>
